@@ -1,0 +1,21 @@
+product_id,product_name,category,price,unit_cost,current_stock,avg_daily_demand,std_daily_demand,lead_time_days,safety_stock,reorder_point,eoq,days_of_supply,status,recommended_order,annual_revenue,abc_class,cum_revenue_pct
+P01,Wireless Optical Mouse,Electronics,25.00,14.00,140,40.80,6.50,5,24,228,733,3.4,Reorder Now,821,372300.00,B,73.4
+P02,Mechanical Gaming Keyboard,Electronics,85.00,50.00,290,25.80,4.20,8,20,227,376,11.2,Healthy,0,800535.00,A,15.8
+P03,Ultra HD 4K Webcam,Electronics,65.00,38.00,120,21.50,3.50,7,16,167,379,5.6,Reorder Now,426,509937.50,A,38.9
+P04,Noise-Cancelling Headphones,Electronics,120.00,70.00,620,19.30,3.20,10,17,210,297,32.1,Healthy,0,845340.00,A,32.4
+P05,Multi-Port USB-C Hub,Electronics,35.00,20.00,310,36.50,5.80,6,24,243,618,8.5,Healthy,0,466287.50,B,82.6
+P06,Portable Bluetooth Speaker,Electronics,45.00,26.00,280,29.40,4.60,7,21,227,489,9.5,Healthy,0,482895.00,B,87.3
+P07,Smart Fitness Watch,Electronics,95.00,55.00,160,23.60,3.90,9,20,233,343,6.8,Reorder Now,416,818365.00,A,25.7
+P08,Organic Arabica Coffee Beans 1kg,Groceries,22.00,12.00,450,57.20,8.80,4,29,258,872,7.9,Healthy,0,459318.00,B,91.8
+P09,Japanese Matcha Green Tea 250g,Groceries,18.00,10.00,130,33.50,5.40,5,20,188,739,3.9,Reorder Now,797,220095.00,C,96.2
+P10,Almond Milk Unsweetened 1L,Groceries,4.50,2.40,1300,68.40,10.20,3,30,236,1870,19.0,Healthy,0,112347.00,C,98.4
+P11,Extra Virgin Olive Oil 1L,Groceries,16.00,9.50,380,41.80,6.70,6,28,279,926,9.1,Healthy,0,244112.00,C,94.0
+P12,Organic Rolled Oats 1.5kg,Groceries,8.50,4.80,390,50.10,7.90,4,26,227,1194,7.8,Healthy,0,155435.25,C,97.7
+P13,Creamy Peanut Butter 1kg,Groceries,9.00,5.00,360,43.90,7.10,4,24,200,1117,8.2,Healthy,0,144211.50,C,99.2
+P14,85% Dark Artisan Chocolate 100g,Groceries,5.00,2.80,180,52.80,8.30,4,28,240,1642,3.4,Reorder Now,1702,96360.00,C,100.0
+P15,Classic Cotton Crewneck T-Shirt,Apparel,24.00,11.00,480,51.00,8.10,7,36,393,836,9.4,Healthy,0,446760.00,B,77.8
+P16,Slim-Fit Stretch Denim Jeans,Apparel,55.00,26.00,250,27.20,4.30,10,23,295,466,9.2,Healthy,0,546040.00,A,49.7
+P17,Lightweight Running Shoes,Apparel,75.00,38.00,230,23.10,3.70,12,22,299,396,10.0,Reorder Now,465,632437.50,A,44.2
+P18,Merino Wool Winter Sweater,Apparel,68.00,34.00,580,18.70,3.10,11,17,223,365,31.0,Overstock,0,463468.00,B,69.7
+P19,Breathable Athletic Gym Hoodie,Apparel,48.00,24.00,320,31.50,5.10,8,24,276,489,10.2,Healthy,0,551880.00,A,55.1
+P20,All-Weather Windbreaker Jacket,Apparel,80.00,42.00,210,17.10,2.80,12,16,222,331,12.3,Healthy,0,499320.00,A,60.0

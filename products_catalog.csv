@@ -1,0 +1,21 @@
+product_id,product_name,category,base_price,unit_cost,lead_time_days,holding_cost,ordering_cost,base_demand,current_stock
+P01,Wireless Optical Mouse,Electronics,25.0,14.0,5,2.5,45.0,38,140
+P02,Mechanical Gaming Keyboard,Electronics,85.0,50.0,8,8.0,60.0,24,290
+P03,Ultra HD 4K Webcam,Electronics,65.0,38.0,7,6.0,55.0,20,120
+P04,Noise-Cancelling Headphones,Electronics,120.0,70.0,10,12.0,75.0,18,620
+P05,Multi-Port USB-C Hub,Electronics,35.0,20.0,6,3.5,50.0,35,310
+P06,Portable Bluetooth Speaker,Electronics,45.0,26.0,7,4.5,50.0,28,280
+P07,Smart Fitness Watch,Electronics,95.0,55.0,9,9.5,65.0,22,160
+P08,Organic Arabica Coffee Beans 1kg,Groceries,22.0,12.0,4,2.2,40.0,55,450
+P09,Japanese Matcha Green Tea 250g,Groceries,18.0,10.0,5,1.8,40.0,32,130
+P10,Almond Milk Unsweetened 1L,Groceries,4.5,2.4,3,0.5,35.0,65,1300
+P11,Extra Virgin Olive Oil 1L,Groceries,16.0,9.5,6,1.6,45.0,40,380
+P12,Organic Rolled Oats 1.5kg,Groceries,8.5,4.8,4,0.9,35.0,48,390
+P13,Creamy Peanut Butter 1kg,Groceries,9.0,5.0,4,0.9,35.0,42,360
+P14,85% Dark Artisan Chocolate 100g,Groceries,5.0,2.8,4,0.5,35.0,50,180
+P15,Classic Cotton Crewneck T-Shirt,Apparel,24.0,11.0,7,2.4,45.0,48,480
+P16,Slim-Fit Stretch Denim Jeans,Apparel,55.0,26.0,10,5.5,60.0,26,250
+P17,Lightweight Running Shoes,Apparel,75.0,38.0,12,7.5,70.0,22,230
+P18,Merino Wool Winter Sweater,Apparel,68.0,34.0,11,6.8,65.0,18,580
+P19,Breathable Athletic Gym Hoodie,Apparel,48.0,24.0,8,4.8,50.0,30,320
+P20,All-Weather Windbreaker Jacket,Apparel,80.0,42.0,12,8.0,70.0,16,210

@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Optimised Retail Inventory Management System - Project Report</title>
+<style>
+    @page {
+        size: A4;
+        margin: 20mm;
+    }
+    body {
+        font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        color: #222;
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+        background-color: #fff;
+    }
+    .cover-page {
+        text-align: center;
+        padding-top: 60px;
+        padding-bottom: 80px;
+        page-break-after: always;
+    }
+    .cover-title {
+        font-size: 30px;
+        font-weight: 800;
+        color: #1a365d;
+        margin-bottom: 15px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .cover-subtitle {
+        font-size: 18px;
+        color: #4a5568;
+        margin-bottom: 40px;
+    }
+    .cover-badge {
+        display: inline-block;
+        background-color: #ebf8ff;
+        color: #2b6cb0;
+        padding: 6px 16px;
+        border-radius: 20px;
+        font-weight: 600;
+        font-size: 14px;
+        margin-bottom: 60px;
+        border: 1px solid #bee3f8;
+    }
+    .cover-meta {
+        font-size: 15px;
+        color: #4a5568;
+        line-height: 2;
+        margin-top: 80px;
+        border-top: 2px solid #e2e8f0;
+        padding-top: 30px;
+        display: inline-block;
+        text-align: left;
+    }
+    h1 {
+        color: #1a365d;
+        border-bottom: 2px solid #3182ce;
+        padding-bottom: 8px;
+        font-size: 24px;
+        margin-top: 35px;
+        page-break-before: auto;
+    }
+    h2 {
+        color: #2b6cb0;
+        font-size: 18px;
+        margin-top: 25px;
+        margin-bottom: 10px;
+    }
+    h3 {
+        color: #2d3748;
+        font-size: 15px;
+        margin-top: 15px;
+    }
+    p, li {
+        font-size: 14px;
+        color: #2d3748;
+    }
+    .kpi-container {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        margin: 20px 0;
+    }
+    .kpi-card {
+        flex: 1;
+        background: #f7fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 15px;
+        text-align: center;
+    }
+    .kpi-val {
+        font-size: 22px;
+        font-weight: bold;
+        color: #2b6cb0;
+    }
+    .kpi-lbl {
+        font-size: 12px;
+        color: #718096;
+        text-transform: uppercase;
+        margin-top: 4px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 20px 0;
+        font-size: 12px;
+    }
+    th, td {
+        border: 1px solid #cbd5e0;
+        padding: 8px 10px;
+        text-align: left;
+    }
+    th {
+        background-color: #ebf8ff;
+        color: #2c5282;
+        font-weight: 700;
+    }
+    tr:nth-child(even) {
+        background-color: #f7fafc;
+    }
+    .status-reorder {
+        background-color: #fed7d7;
+        color: #9b2c2c;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+    .status-healthy {
+        background-color: #c6f6d5;
+        color: #22543d;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+    .status-overstock {
+        background-color: #feebc8;
+        color: #744210;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 4px;
+    }
+    .formula-box {
+        background: #edf2f7;
+        border-left: 4px solid #3182ce;
+        padding: 12px 16px;
+        margin: 15px 0;
+        font-family: 'Consolas', monospace;
+        font-size: 13px;
+    }
+    pre {
+        background-color: #1a202c;
+        color: #f7fafc;
+        padding: 14px;
+        border-radius: 6px;
+        font-size: 11px;
+        overflow-x: auto;
+        line-height: 1.4;
+    }
+    .page-break {
+        page-break-after: always;
+    }
+</style>
+</head>
+<body>
+
+<!-- COVER PAGE -->
+<div class="cover-page">
+    <div class="cover-badge">Academic Project Report • Machine Learning & Operations Research</div>
+    <div class="cover-title">Optimised Retail Inventory Management System</div>
+    <div class="cover-subtitle">AI-Driven Demand Forecasting, Safety Stock Optimization & Replenishment Automation</div>
+    
+    <div class="cover-meta">
+        <strong>Domain:</strong> Artificial Intelligence / Machine Learning in Retail Supply Chains<br>
+        <strong>Tech Stack:</strong> Python 3.12, scikit-learn, pandas, numpy, Plotly, Streamlit<br>
+        <strong>Core Algorithms:</strong> Random Forest Regressor, Wilson EOQ, Service-Level Safety Stock, Pareto ABC<br>
+        <strong>Submission Type:</strong> Complete Comprehensive Master Project Documentation
+    </div>
+</div>
+
+<!-- SECTION 1: EXECUTIVE SUMMARY -->
+<h1>1. Executive Summary</h1>
+<p>
+    Inventory mismanagement represents one of the largest drains on profitability in retail enterprises. Traditional static replenishment heuristics (e.g., ordering static batches on fixed calendar days) frequently lead to either <strong>stockouts</strong> (lost revenue, dissatisfied customers) or <strong>overstocking</strong> (dead capital, inflated warehousing costs, product obsolescence).
+</p>
+<p>
+    This project designs and implements an end-to-end, production-grade <strong>Optimised Retail Inventory Management System</strong>. The system models 2 years of daily sales transactions across 20 retail products and 3 distinct categories (Electronics, Groceries, Apparel). Using machine learning (Random Forest Regressor) with lag features and calendar seasonality, the system forecasts future daily demand with a <strong>54.6% reduction in Mean Absolute Error (MAE)</strong> compared to classical moving-average baselines. Forecasted demand is dynamically integrated into classical inventory control formulas—<strong>Safety Stock (SS)</strong>, <strong>Reorder Point (ROP)</strong>, and <strong>Economic Order Quantity (EOQ)</strong>—and presented through an interactive, multi-tab Streamlit executive dashboard.
+</p>
+
+<div class="kpi-container">
+    <div class="kpi-card">
+        <div class="kpi-val">20</div>
+        <div class="kpi-lbl">Monitored SKUs</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-val">5.03</div>
+        <div class="kpi-lbl">ML Model MAE</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-val">+54.6%</div>
+        <div class="kpi-lbl">Accuracy Gain</div>
+    </div>
+    <div class="kpi-card">
+        <div class="kpi-val">95%</div>
+        <div class="kpi-lbl">Target Service Level</div>
+    </div>
+</div>
+
+<!-- SECTION 2: PROBLEM STATEMENT -->
+<h1>2. Problem Statement & System Objectives</h1>
+<h2>2.1 The Retail Dilemma</h2>
+<ul>
+    <li><strong>Understocking (Stockouts):</strong> Inability to meet customer demand during surges, leading to lost immediate sales and brand erosion.</li>
+    <li><strong>Overstocking:</strong> Excessive inventory tied up in warehouse space, incurring annual holding costs (typically 15%–25% of unit cost per year), risk of theft/damage, and liquidity bottlenecks.</li>
+    <li><strong>Seasonality & Promotion Blindness:</strong> Traditional heuristic systems fail to anticipate weekend demand boosts, holiday shopping surges (Q4), and discount campaign lifts.</li>
+</ul>
+
+<h2>2.2 Core Objectives</h2>
+<ol>
+    <li>Simulate realistic retail sales data incorporating weekly seasonality, holiday surges, dynamic pricing, and promotions.</li>
+    <li>Train and validate an ML model to forecast demand using time-based evaluation splits with zero data leakage.</li>
+    <li>Translate probabilistic demand into operational parameters: Safety Stock, Reorder Point, and EOQ.</li>
+    <li>Provide store managers with an interactive decision cockpit with color-coded alerts and one-click purchase order CSV export.</li>
+</ol>
+
+<div class="page-break"></div>
+
+<!-- SECTION 3: SYSTEM ARCHITECTURE -->
+<h1>3. System Architecture & Methodology</h1>
+<p>
+    The system follows a modular, feed-forward pipeline architecture designed for high maintainability and zero runtime external dependencies:
+</p>
+
+<div class="formula-box">
+[data_generator.py]  ==> Synthetic 2-Year Multi-Category Retail Transactions (14,600 rows)<br>
+        ||<br>
+        \/<br>
+[model.py]           ==> Feature Engineering (Lags, Rolling Means) + Random Forest Regressor<br>
+        ||<br>
+        \/<br>
+[inventory_logic.py] ==> Mathematical Formulations: Safety Stock, ROP, EOQ, ABC Pareto<br>
+        ||<br>
+        \/<br>
+[app.py]             ==> Streamlit Web Executive Cockpit (Overview, Forecasts, Reorder Table)
+</div>
+
+<h2>3.1 Feature Engineering Pipeline</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Feature Name</th>
+            <th>Type</th>
+            <th>Description & Formula</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>day_of_week</code></td>
+            <td>Temporal</td>
+            <td>Integer 0 (Mon) to 6 (Sun). Captures Friday/Saturday/Sunday retail footfall surges.</td>
+        </tr>
+        <tr>
+            <td><code>month</code></td>
+            <td>Temporal</td>
+            <td>Integer 1 to 12. Captures Q4 festive spikes (Nov/Dec) and summer promotion spikes.</td>
+        </tr>
+        <tr>
+            <td><code>price</code></td>
+            <td>Financial</td>
+            <td>Selling price after promotional discounts. Captures customer price sensitivity.</td>
+        </tr>
+        <tr>
+            <td><code>promotion</code></td>
+            <td>Binary Indicator</td>
+            <td>1 if active campaign (10–20% discount), 0 otherwise. Simulates demand elasticity.</td>
+        </tr>
+        <tr>
+            <td><code>lag_7</code></td>
+            <td>Historical Autoregressive</td>
+            <td>Unit sales exactly 7 days prior. Captures day-of-week memory.</td>
+        </tr>
+        <tr>
+            <td><code>lag_14</code></td>
+            <td>Historical Autoregressive</td>
+            <td>Unit sales exactly 14 days prior. Captures bi-weekly ordering cycles.</td>
+        </tr>
+        <tr>
+            <td><code>rolling_mean_7</code></td>
+            <td>Trend / Momentum</td>
+            <td>Lagged 7-day rolling sales average: <code>shift(1).rolling(7).mean()</code> (Zero Leakage).</td>
+        </tr>
+        <tr>
+            <td><code>rolling_mean_30</code></td>
+            <td>Baseline Consumption</td>
+            <td>Lagged 30-day rolling sales average: <code>shift(1).rolling(30).mean()</code> (Zero Leakage).</td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- SECTION 4: INVENTORY OPTIMIZATION MATHEMATICS -->
+<h1>4. Inventory Optimization Mathematical Formulations</h1>
+
+<h2>4.1 Safety Stock (SS)</h2>
+<p>
+    Safety stock acts as a protective buffer against demand spikes and vendor fulfillment delays during lead time:
+</p>
+<div class="formula-box">
+    SS = Z &times; &radic;L &times; &sigma;<sub>d</sub><br><br>
+    Where:<br>
+    &bull; Z = 1.65 (Standard normal distribution score for 95% cycle service level)<br>
+    &bull; L = Supplier lead time in days (lead_time_days)<br>
+    &bull; &sigma;<sub>d</sub> = Standard deviation of daily demand
+</div>
+
+<h2>4.2 Reorder Point (ROP)</h2>
+<p>
+    The inventory threshold that triggers replenishment so stock does not deplete to zero before delivery:
+</p>
+<div class="formula-box">
+    ROP = (d&#772; &times; L) + SS<br><br>
+    Where:<br>
+    &bull; d&#772; = Average forecasted daily demand over the planning horizon<br>
+    &bull; L = Supplier lead time in days<br>
+    &bull; SS = Safety Stock
+</div>
+
+<h2>4.3 Economic Order Quantity (EOQ)</h2>
+<p>
+    Balances fixed order placement expenses against annual warehouse inventory holding costs:
+</p>
+<div class="formula-box">
+    EOQ = &radic;[ (2 &times; D &times; S) / H ]<br><br>
+    Where:<br>
+    &bull; D = Projected Annual Demand = d&#772; &times; 365<br>
+    &bull; S = Fixed administrative cost per order (ordering_cost)<br>
+    &bull; H = Unit annual carrying/holding cost (holding_cost)
+</div>
+
+<div class="page-break"></div>
+
+<!-- SECTION 5: MODEL BENCHMARK RESULTS -->
+<h1>5. Empirical Benchmark & Model Evaluation</h1>
+<p>
+    The demand forecasting engine was trained on 13,120 daily records and evaluated on an <strong>unseen 60-day test set (1,200 observations)</strong> using strict time-series partitioning:
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>Forecasting Model</th>
+            <th>Mean Absolute Error (MAE)</th>
+            <th>Root Mean Squared Error (RMSE)</th>
+            <th>Performance Gain</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><strong>7-Day Moving Average Heuristic</strong></td>
+            <td>11.06 units</td>
+            <td>15.31 units</td>
+            <td>Baseline</td>
+        </tr>
+        <tr>
+            <td><strong>Random Forest ML Regressor</strong></td>
+            <td><strong>5.03 units</strong></td>
+            <td><strong>7.18 units</strong></td>
+            <td><strong>+54.6% Error Reduction</strong></td>
+        </tr>
+    </tbody>
+</table>
+
+<p>
+    <strong>Key Analysis:</strong> The Random Forest model cuts the forecasting error by more than half. Traditional moving averages lag behind demand spikes (especially during weekend promos and festive seasons), resulting in severe stockout risks. The ML model learns non-linear interaction terms between promotions, days of the week, and category dynamics, enabling precise stocking.
+</p>
+
+<!-- SECTION 6: COMPLETE INVENTORY MASTER TABLE -->
+<h1>6. Master Inventory Optimization Results Table</h1>
+<p>
+    Below is the complete audit matrix for all 20 monitored products produced by the system:
+</p>
+
+<table>
+    <thead>
+        <tr>
+            <th>SKU</th>
+            <th>Product Name</th>
+            <th>Cat</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Lead</th>
+            <th>SS</th>
+            <th>ROP</th>
+            <th>EOQ</th>
+            <th>Supply</th>
+            <th>Status</th>
+            <th>Order Qty</th>
+            <th>ABC</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr><td>P01</td><td>Wireless Optical Mouse</td><td>Elec</td><td>$25.00</td><td>140</td><td>5d</td><td>24</td><td>228</td><td>733</td><td>3.4d</td><td><span class="status-reorder">Reorder Now</span></td><td>821</td><td>B</td></tr>
+        <tr><td>P02</td><td>Mechanical Gaming Keyboard</td><td>Elec</td><td>$85.00</td><td>290</td><td>8d</td><td>20</td><td>227</td><td>376</td><td>11.2d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>A</td></tr>
+        <tr><td>P03</td><td>Ultra HD 4K Webcam</td><td>Elec</td><td>$65.00</td><td>120</td><td>7d</td><td>16</td><td>167</td><td>379</td><td>5.6d</td><td><span class="status-reorder">Reorder Now</span></td><td>426</td><td>A</td></tr>
+        <tr><td>P04</td><td>Noise-Cancelling Headphones</td><td>Elec</td><td>$120.00</td><td>620</td><td>10d</td><td>17</td><td>210</td><td>297</td><td>32.1d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>A</td></tr>
+        <tr><td>P05</td><td>Multi-Port USB-C Hub</td><td>Elec</td><td>$35.00</td><td>310</td><td>6d</td><td>24</td><td>243</td><td>618</td><td>8.5d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>B</td></tr>
+        <tr><td>P06</td><td>Portable Bluetooth Speaker</td><td>Elec</td><td>$45.00</td><td>280</td><td>7d</td><td>21</td><td>227</td><td>489</td><td>9.5d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>B</td></tr>
+        <tr><td>P07</td><td>Smart Fitness Watch</td><td>Elec</td><td>$95.00</td><td>160</td><td>9d</td><td>20</td><td>233</td><td>343</td><td>6.8d</td><td><span class="status-reorder">Reorder Now</span></td><td>416</td><td>A</td></tr>
+        <tr><td>P08</td><td>Organic Arabica Coffee Beans</td><td>Groc</td><td>$22.00</td><td>450</td><td>4d</td><td>29</td><td>258</td><td>872</td><td>7.9d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>B</td></tr>
+        <tr><td>P09</td><td>Japanese Matcha Green Tea</td><td>Groc</td><td>$18.00</td><td>130</td><td>5d</td><td>20</td><td>188</td><td>739</td><td>3.9d</td><td><span class="status-reorder">Reorder Now</span></td><td>797</td><td>C</td></tr>
+        <tr><td>P10</td><td>Almond Milk Unsweetened 1L</td><td>Groc</td><td>$4.50</td><td>1300</td><td>3d</td><td>30</td><td>236</td><td>1870</td><td>19.0d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>C</td></tr>
+        <tr><td>P11</td><td>Extra Virgin Olive Oil 1L</td><td>Groc</td><td>$16.00</td><td>380</td><td>6d</td><td>28</td><td>279</td><td>926</td><td>9.1d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>C</td></tr>
+        <tr><td>P12</td><td>Organic Rolled Oats 1.5kg</td><td>Groc</td><td>$8.50</td><td>390</td><td>4d</td><td>26</td><td>227</td><td>1194</td><td>7.8d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>C</td></tr>
+        <tr><td>P13</td><td>Creamy Peanut Butter 1kg</td><td>Groc</td><td>$9.00</td><td>360</td><td>4d</td><td>24</td><td>200</td><td>1117</td><td>8.2d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>C</td></tr>
+        <tr><td>P14</td><td>85% Dark Artisan Chocolate</td><td>Groc</td><td>$5.00</td><td>180</td><td>4d</td><td>28</td><td>240</td><td>1642</td><td>3.4d</td><td><span class="status-reorder">Reorder Now</span></td><td>1702</td><td>C</td></tr>
+        <tr><td>P15</td><td>Classic Cotton Crewneck T-Shirt</td><td>App</td><td>$24.00</td><td>480</td><td>7d</td><td>36</td><td>393</td><td>836</td><td>9.4d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>B</td></tr>
+        <tr><td>P16</td><td>Slim-Fit Stretch Denim Jeans</td><td>App</td><td>$55.00</td><td>250</td><td>10d</td><td>23</td><td>295</td><td>466</td><td>9.2d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>A</td></tr>
+        <tr><td>P17</td><td>Lightweight Running Shoes</td><td>App</td><td>$75.00</td><td>230</td><td>12d</td><td>22</td><td>299</td><td>396</td><td>10.0d</td><td><span class="status-reorder">Reorder Now</span></td><td>465</td><td>A</td></tr>
+        <tr><td>P18</td><td>Merino Wool Winter Sweater</td><td>App</td><td>$68.00</td><td>580</td><td>11d</td><td>17</td><td>223</td><td>365</td><td>31.0d</td><td><span class="status-overstock">Overstock</span></td><td>0</td><td>B</td></tr>
+        <tr><td>P19</td><td>Breathable Athletic Gym Hoodie</td><td>App</td><td>$48.00</td><td>320</td><td>8d</td><td>24</td><td>276</td><td>489</td><td>10.2d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>A</td></tr>
+        <tr><td>P20</td><td>All-Weather Windbreaker Jacket</td><td>App</td><td>$80.00</td><td>210</td><td>12d</td><td>16</td><td>222</td><td>331</td><td>12.3d</td><td><span class="status-healthy">Healthy</span></td><td>0</td><td>A</td></tr>
+    </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- SECTION 7: USER MANUAL & INSTRUCTIONS -->
+<h1>7. Operational Guide & User Manual</h1>
+<h2>7.1 Running the Web Dashboard</h2>
+<pre>
+# 1. Open Terminal in the project directory:
+cd c:\Users\AMAN\Desktop\hclproject
+
+# 2. Launch the Streamlit server:
+streamlit run app.py
+</pre>
+
+<h2>7.2 Navigating Dashboard Tabs</h2>
+<ul>
+    <li><strong>Tab 1 (Overview & ABC Pareto):</strong> High-level executive view displaying overall store inventory health counts, dual-axis revenue contribution curves, and ABC tier breakdowns.</li>
+    <li><strong>Tab 2 (Demand Forecast):</strong> SKU-level predictive analysis displaying historical actual vs. ML predicted sales over the 60-day test set and 30-day forward forecasts.</li>
+    <li><strong>Tab 3 (Reorder Recommendations):</strong> Actionable replenishment matrix with Category and Status filters, color-coded health badges, and one-click purchase order CSV download.</li>
+</ul>
+
+<!-- SECTION 8: CONCLUSION -->
+<h1>8. Conclusion & Future Scope</h1>
+<p>
+    The <strong>Optimised Retail Inventory Management System</strong> successfully demonstrates that machine learning demand forecasting combined with classical inventory mathematics drastically outperforms traditional replenishment heuristics. By predicting demand with 54.6% higher accuracy and dynamically updating Reorder Points and Safety Stock, retail stores can maintain a 95% customer service level while systematically eliminating excess carrying costs.
+</p>
+<p>
+    <strong>Future Enhancements:</strong> Multi-echelon supply chain optimization across multiple regional warehouses, automated supplier lead-time tracking via IoT feeds, and weather-based demand adjustment factors.
+</p>
+
+</body>
+</html>
